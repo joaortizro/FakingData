@@ -30,6 +30,7 @@ def dummyNumeralObject(problem_id):
         numeralObject.update(simplify=dummySimplifyObject())
     return numeralObject
 
+
 def arrayOfObjects():
     array = []
     for i in range(random.randint(1, 10)):
@@ -54,8 +55,10 @@ def dummySimplifyObject():
 
 
 problemObject = dummyProblemObject()
-
 num = dummyNumeralObject(problem_id=problemObject["id"])
+problemObject.update(numerals=[num])
 
-with open("num.json", "w") as f:
-    json.dump(num, f)
+pp.pprint(problemObject)
+
+with open("problem.json", "w") as f:
+    json.dump(problemObject, f)
